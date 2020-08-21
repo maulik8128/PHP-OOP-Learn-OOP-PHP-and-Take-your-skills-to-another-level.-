@@ -10,12 +10,20 @@
         </h1>
             <?php 
             
-            $sql = "SELECT * FROM users WHERE id=1";
-            $result= $database->query($sql);
-            $user_found = mysqli_fetch_array($result);
+        
 
-            echo $user_found['password']; 
-    
+            $result_set = User::find_all_users();
+        
+           while($row=mysqli_fetch_array($result_set)){
+          
+                echo $row['username'] . "<br>";
+          
+         
+           }
+
+           $maulik = User::find_users_by_id(2);
+
+           echo $maulik['password'];
             
             ?>
 
