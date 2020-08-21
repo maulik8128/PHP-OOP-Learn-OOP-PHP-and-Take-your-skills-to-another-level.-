@@ -18,6 +18,4 @@ define('DB_NAME','gallery_db');
 
 
 
-
-
 ?>
