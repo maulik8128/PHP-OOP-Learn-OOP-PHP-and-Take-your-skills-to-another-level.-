@@ -23,8 +23,14 @@
 
            $maulik = User::find_users_by_id(2);
 
-           echo $maulik['password'];
-            
+           $user=User::instantiation($maulik);
+           
+           echo $user->id;
+           echo $user->username;
+           echo $user->password;
+           echo $user->first_name;
+           echo $user->last_name;
+  
             ?>
 
         <ol class="breadcrumb">
