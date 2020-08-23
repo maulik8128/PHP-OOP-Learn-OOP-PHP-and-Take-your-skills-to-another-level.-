@@ -7,9 +7,9 @@ function classAutoLoader($class){
  $the_path= "includes/{$class}.php";
 
 
- if(file_exists($the_path)){
+ if(is_file($the_path)&& !class_exists($class)){
 
-    require_once($the_path);
+   
  }else{
 
    die("This file name {$class}.php was not found man...");
@@ -19,7 +19,11 @@ function classAutoLoader($class){
 
 spl_autoload_register('classAutoloader');
 
+function redirect($location){
 
+  header("Location:{$location}");
+  
+}
 
 
 

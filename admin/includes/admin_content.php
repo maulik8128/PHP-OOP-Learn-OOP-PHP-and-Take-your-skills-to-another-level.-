@@ -31,11 +31,11 @@
         //    echo $user->first_name;
         //    echo $user->last_name;
 
-           $users = User::find_all_users();
-           foreach($users as $user){
+        //    $users = User::find_all_users();
+        //    foreach($users as $user){
 
-              echo $user->username . "<br>";
-           }
+        //       echo $user->username . "<br>";
+        //    }
 
 
 
