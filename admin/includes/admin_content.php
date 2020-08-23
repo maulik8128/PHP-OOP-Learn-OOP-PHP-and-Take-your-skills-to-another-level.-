@@ -12,24 +12,33 @@
             
         
 
-            $result_set = User::find_all_users();
+        //     $result_set = User::find_all_users();
         
-           while($row=mysqli_fetch_array($result_set)){
+        //    while($row=mysqli_fetch_array($result_set)){
           
-                echo $row['username'] . "<br>";
+        //         echo $row['username'] . "<br>";
           
          
+        //    }
+
+        //    $maulik = User::find_users_by_id(2);
+
+        //    $user=User::instantiation($maulik);
+           
+        //    echo $user->id;
+        //    echo $user->username;
+        //    echo $user->password;
+        //    echo $user->first_name;
+        //    echo $user->last_name;
+
+           $users = User::find_all_users();
+           foreach($users as $user){
+
+              echo $user->username . "<br>";
            }
 
-           $maulik = User::find_users_by_id(2);
 
-           $user=User::instantiation($maulik);
-           
-           echo $user->id;
-           echo $user->username;
-           echo $user->password;
-           echo $user->first_name;
-           echo $user->last_name;
+
   
             ?>
 
