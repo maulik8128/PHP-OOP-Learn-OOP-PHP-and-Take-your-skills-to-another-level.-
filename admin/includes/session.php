@@ -48,7 +48,7 @@ class Session {
 
         if ($user) {
 
-            $this->user_id = $_SESSION['user_id'] = $user->id;
+            $this->user_id = $_SESSION['user_id'] = 1;//$user->id
             $this->signed_in = false;
         }
 

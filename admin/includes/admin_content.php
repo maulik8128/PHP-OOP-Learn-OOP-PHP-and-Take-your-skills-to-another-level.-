@@ -51,6 +51,14 @@
         //   }
 
         
+                // $user= new User();
+
+
+                // $user->username = "meet";
+                // $user->password = "456";
+                // $user->first_name = "sfaf";
+                // $user->last_name = "dsadsa";
+                // $user-> create();
   
             ?>
 
