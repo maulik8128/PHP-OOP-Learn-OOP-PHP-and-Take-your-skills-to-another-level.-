@@ -45,6 +45,30 @@ class User {
 
     }
 
+
+  public static function verify_user($username,$password){
+
+    global $database;
+
+    $username = $database->escape_string($username);
+    $password = $database->escape_string($password);
+
+    $the_result_array = self::find_this_query("SELECT * FROM users WHERE username='{$username}' AND  password='{$password}' LIMIT 1");
+
+    return !empty($the_result_array) ? array_shift($the_result_array) : false;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
     public static function instantiation($the_record) {
 
         $the_object = new self;
@@ -59,7 +83,7 @@ class User {
 
             if ($the_object->has_the_attribute($the_attribute)) {
 
-                $the_object->$the_attribute = $value;
+                $the_object->the_attribute = $value;
             }
         }
 
