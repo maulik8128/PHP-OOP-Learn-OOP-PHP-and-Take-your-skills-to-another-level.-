@@ -21,14 +21,18 @@
          
         //    }
 
-        //    $maulik = User::find_users_by_id(2);
+        //   $maulik = User::find_users_by_id(2);
 
         //    $user=User::instantiation($maulik);
-           
-        //    echo $user->id;
+        //    print_r($user);
+        //     echo $user->id;
+        //    echo "<br>";
         //    echo $user->username;
+        //    echo "<br>";
         //    echo $user->password;
+        //    echo "<br>";
         //    echo $user->first_name;
+        //    echo "<br>";
         //    echo $user->last_name;
 
         //    $users = User::find_all_users();
@@ -50,15 +54,23 @@
         
         //   }
 
-        
-                // $user= new User();
+            // $user = new User();
+
+            // $user->username ="edwin";
+            // $user->password ="superman";
+            // $user->first_name = "edwin";
+            // $user->last_name = "diez";
+
+            // $user->create();
 
 
-                // $user->username = "meet";
-                // $user->password = "456";
-                // $user->first_name = "sfaf";
-                // $user->last_name = "dsadsa";
-                // $user-> create();
+
+            //   $user= User::find_users_by_id();
+             
+            //   $user->username = "sham";
+            //   $user->last_name = "patel";
+            //   $user->create();
+
   
             ?>
 
