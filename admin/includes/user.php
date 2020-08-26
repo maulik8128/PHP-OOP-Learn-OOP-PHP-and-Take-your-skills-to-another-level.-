@@ -67,7 +67,7 @@ class User extends Db_object {
             return false;
         }
 
-    } // END CREATE METHOD
+    } // END Create Method
 
     // Update Method
     public function update() {
