@@ -21,25 +21,29 @@
          
         //    }
 
-        //   $maulik = User::find_users_by_id(2);
-
-        //    $user=User::instantiation($maulik);
+        //   $maulik = Photo::find_by_id(1);
+        //   print_r($maulik);
+        //    $user=Photo::instantiation($maulik);
         //    print_r($user);
-        //     echo $user->id;
+        //     echo $user->photo_id;
         //    echo "<br>";
-        //    echo $user->username;
+        //    echo $user->title;
         //    echo "<br>";
-        //    echo $user->password;
+        //    echo $user->description;
         //    echo "<br>";
-        //    echo $user->first_name;
+        //    echo $user->type;
         //    echo "<br>";
-        //    echo $user->last_name;
+        //    echo $user->size;
 
-           $users =User::find_all();
-           foreach($users as $user){
+        //    $photos =Photo::find_all();
+        //    foreach($photos as $photo){
 
-              echo $user->username . "<br>";
-           }
+        //       echo $photo->title . "<br>";
+        //       echo $photo->description . "<br>";
+        //       echo $photo->filename . "<br>";
+        //       echo $photo->type . "<br>";
+        //       echo $photo->size . "<br>";
+        //    }
 
         // public static function verify_user($username,$password){
 
@@ -61,15 +65,21 @@
             // $user->first_name = "edwin";
             // $user->last_name = "diez";
 
-            // $user->create();
+            // $user->save();
 
-
+  echo INCLUDES_PATH;
 
             //   $user= User::find_users_by_id();
              
             //   $user->username = "sham";
             //   $user->last_name = "patel";
             //   $user->create();
+
+            $photo=new Photo();
+            $photo->title ="fenil";
+            $photo->size ="100022";
+            $photo->create();
+
 
   
             ?>
