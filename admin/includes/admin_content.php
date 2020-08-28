@@ -67,7 +67,7 @@
 
             // $user->save();
 
-  echo INCLUDES_PATH;
+  
 
             //   $user= User::find_users_by_id();
              
@@ -75,10 +75,10 @@
             //   $user->last_name = "patel";
             //   $user->create();
 
-            $photo=new Photo();
-            $photo->title ="fenil";
-            $photo->size ="100022";
-            $photo->create();
+            // $photo=new Photo();
+            // $photo->title ="fenil";
+            // $photo->size ="100022";
+            // $photo->create();
 
 
   
