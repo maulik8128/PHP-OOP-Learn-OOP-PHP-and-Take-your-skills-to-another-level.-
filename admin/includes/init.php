@@ -3,7 +3,8 @@
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 
 define('SITE_ROOT',DS.'xampp'.DS.'htdocs'.DS.'oop'.DS.'gallery');
-
+define('GALLERY_ROOT',DS.'oop'.DS.'gallery'.DS);
+define('ADMIN_ROOT',DS.'oop'.DS.'gallery'.DS.'admin'.DS);
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH',SITE_ROOT.DS.'admin'.DS.'includes');
 
 

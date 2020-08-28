@@ -67,13 +67,12 @@
 
             // $user->save();
 
-  
-
-            //   $user= User::find_users_by_id();
+            $photo = Photo::find_by_id(27);
+           echo $photo->title;
+            //   $user1= User::find_by_id(2);
              
-            //   $user->username = "sham";
-            //   $user->last_name = "patel";
-            //   $user->create();
+            // echo $user1->password;
+             
 
             // $photo=new Photo();
             // $photo->title ="fenil";

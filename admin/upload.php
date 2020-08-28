@@ -60,7 +60,7 @@ if($photo->save()){
                 <div class="col-md-6">
 
                 <?php echo $massage; ?>
-                    <form action="upload.php" method="post" enctype="multipart/form-data" class="">
+                    <form action="upload.php" method="post" enctype="multipart/form-data    " >
 
                         <div class="form-group">
 
