@@ -67,8 +67,8 @@
 
             // $user->save();
 
-            $photo = Photo::find_by_id(27);
-           echo $photo->title;
+        //     $photo = Photo::find_by_id(27);
+        //    echo $photo->title;
             //   $user1= User::find_by_id(2);
              
             // echo $user1->password;

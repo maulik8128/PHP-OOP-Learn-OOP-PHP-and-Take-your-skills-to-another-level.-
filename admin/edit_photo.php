@@ -2,8 +2,28 @@
 <?php if (!$session->is_signed_in()) {redirect("login.php");}?>
 <?php 
 
+if(empty($_GET['id'])){
 
-$photos = Photo::find_all();
+    redirect("photos.php");
+
+}else{
+
+    $photo = Photo::find_by_id($_GET['id']);
+
+    if(isset($_POST['update'])){
+   
+    $photo->title = $_POST['title'];
+    $photo->caption =$_POST['caption'];
+    $photo->alternate_text =$_POST['alternate_text'];
+    $photo->description =$_POST['description'];
+    $photo->save();
+        
+    }
+    
+
+}
+
+
 
 
 ?>
@@ -38,27 +58,34 @@ $photos = Photo::find_all();
                     <small>Subheading</small>
                 </h1>
 
-                <form action="">
+                <form action="" method="post">
                     <div class="col-md-8">
 
                         <div class="form-group">
-                            <label for="caption" class="">Title</label>
-                            <input type="text" name="title" class="form-control">
+                            <label for="title" class="">Title</label>
+                            <input type="text" name="title" class="form-control" value="<?php echo $photo->title; ?>">
+                        </div>
+
+                        <div class="form-group">
+                           <a class="img-thumbnail" href="#"><img src="<?php echo $photo->picture_path(); ?>" alt=""></a>
                         </div>
 
                         <div class="form-group">
                             <label for="caption" class="">Caption</label>
-                            <input type="text" name="caption" class="form-control">
+                            <input type="text" name="caption" class="form-control"
+                                value="<?php echo $photo->caption; ?>">
                         </div>
 
                         <div class="form-group">
-                            <label for="caption" class="">Alternate text</label>
-                            <input type="text" name="alternate_text" class="form-control">
+                            <label for="alternate_text" class="">Alternate text</label>
+                            <input type="text" name="alternate_text" class="form-control"
+                                value="<?php echo $photo->alternate_text; ?>">
                         </div>
 
                         <div class="form-group">
-                            <label for="caption" class="">Description</label>
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                            <label for="description" class="">Description</label>
+                            <textarea name="description" id="textarea" cols="30" rows="10"
+                                class="form-control"><?php echo $photo->description; ?> </textarea>
                         </div>
 
                     </div>
@@ -76,16 +103,16 @@ $photos = Photo::find_all();
                                         5:26
                                     </p>
                                     <p class="text ">
-                                        Photo Id: <span class="data photo_id_box">34</span>
+                                        Photo Id: <span class="data photo_id_box"><?php echo $photo->id; ?></span>
                                     </p>
                                     <p class="text">
-                                        Filename: <span class="data">image.jpg</span>
+                                        Filename: <span class="data"><?php echo $photo->filename; ?></span>
                                     </p>
                                     <p class="text">
-                                        File Type: <span class="data">JPG</span>
+                                        File Type: <span class="data"><?php echo $photo->type; ?></span>
                                     </p>
                                     <p class="text">
-                                        File Size: <span class="data">3245345</span>
+                                        File Size: <span class="data"><?php echo $photo->size; ?></span>
                                     </p>
                                 </div>
                                 <div class="info-box-footer clearfix">
