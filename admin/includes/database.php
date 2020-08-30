@@ -45,10 +45,10 @@ class Database {
     public function escape_string($string) {
 
        // $escaped_string = mysqli_real_escape_string($this->connection, $string);
-
-       $escaped_string=$this->connection->real_escape_string($string);
+       $trimed_string = trim($string);
+       $escaped_string=$this->connection->real_escape_string($trimed_string);
         return $escaped_string;
-
+       
     }
     public  function the_insert_id(){
 
