@@ -12,7 +12,7 @@ class Db_object {
     }
     public static function find_by_id($id) {
         global $database;
- $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id=$id LIMIT 1"); 
+        $the_result_array = static::find_by_query("SELECT * FROM " . static::$db_table . " WHERE id=$id LIMIT 1");
 
         // $found_user=mysqli_fetch_array($the_result_array);
 
@@ -23,7 +23,7 @@ class Db_object {
         // } else {
         //     return false;
         // }
-       
+
     }
     public static function find_by_query($sql) {
         global $database;
@@ -69,7 +69,6 @@ class Db_object {
         return array_key_exists($the_attribute, $object_properties);
     }
 
-  
     protected function properties() {
 
         // return get_object_vars($this);
@@ -165,6 +164,22 @@ class Db_object {
 
     }
 
+    public static function count_all() {
+        global $database;
+
+        $sql = "SELECT COUNT(*) FROM " . static::$db_table;
+        $result_set = $database->query($sql);
+        $row = mysqli_fetch_array($result_set);
+
+        return array_shift($row);
+        
+
+    }
+
 }
+
+// $result = mysql_query("SELECT count(*) as total from Students";
+        // $data = mysql_fetch_assoc($result);
+        // echo $data['total'];
 
 ?>
