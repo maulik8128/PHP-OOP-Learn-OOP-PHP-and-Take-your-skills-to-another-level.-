@@ -4,15 +4,13 @@
 
 <?php 
 
+$page= !empty($_GET['page'])?$_GET['page']
+
+
+
+
 $photos= Photo::find_all();
 ?>
-
-
-
-
-
-
-
 
 
 
@@ -22,37 +20,30 @@ $photos= Photo::find_all();
     <!-- Blog Entries Column -->
 
     <div class="col-md-12">
+        <div class="thumbnail row">
+            <?php foreach ($photos as $photo) : ?>
 
-<?php foreach ($photos as $photo) : ?>
+                
 
-<div class="thumbnail row">
+            <div class="col-xs-6 col-md-3">
 
-<div class="col-xs-6 col-md-3">
+                <a class="thumbnail" href="photo.php?id=<?php echo$photo->id;?>">
 
-
-
-
-</div>
-
+                    <img class ="img-responsive home_page_photo" src="admin/<?php echo $photo->picture_path();?>" alt=""  >
 
 
-
-</div>
-
+                </a>
 
 
-<?php endforeach; ?>
+            </div>
+
+
+            <?php endforeach; ?>
+
+        </div>
 
     </div>
 
-    <!-- Blog Sidebar Widgets Column -->
-    <!-- <div class="col-md-4">
+</div>
 
-
-        <?php //include "includes/sidebar.php";?>
-
-
-    </div> -->
-    <!-- /.row -->
- </div>
-    <?php include "includes/footer.php";?>
+<?php include "includes/footer.php";?>
