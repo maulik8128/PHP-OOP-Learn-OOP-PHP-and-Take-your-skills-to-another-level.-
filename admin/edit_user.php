@@ -1,4 +1,5 @@
 <?php include "includes/header.php";?>
+<?php include "includes/photo_library_modal.php";?>
 <?php if (!$session->is_signed_in()) {redirect("login.php");}?>
 <?php
 
@@ -61,7 +62,7 @@ if (isset($_POST['update'])) {
 
                 </h1>
                 <dv class="col-md-6">
-                    <img src="<?php echo $user->image_path_and_placeholder(); ?>" class="img-responsive" alt="">
+                <a href="#" data-toggle="modal" data-target="#photo-library" class="">  <img src="<?php echo $user->image_path_and_placeholder(); ?>" class="img-responsive" alt=""></a> 
                 </dv>
 
                 <form action="" method="post" enctype="multipart/form-data">
@@ -97,7 +98,7 @@ if (isset($_POST['update'])) {
                         </div>
 
                         <div class="form-group">
-                            <a href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>
+                            <a id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>" class="btn btn-danger ">Delete</a>
                             <input type="submit" name="update" class="btn btn-primary pull-right" value="Update">
                         </div>
                       

@@ -54,8 +54,8 @@ if($photo->save()){
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    UPLOADS
-                    <small>Subheading</small>
+                    Uploads
+                    <small></small>
                 </h1>
                 <div class="col-md-6">
 
