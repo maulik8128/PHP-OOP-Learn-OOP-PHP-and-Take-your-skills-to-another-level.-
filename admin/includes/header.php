@@ -27,6 +27,9 @@
     <script src="http://tinymce.cachefly.net/4.1/tinymce.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <link href="css/dropzone.min.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

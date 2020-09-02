@@ -3,7 +3,7 @@
 class User extends Db_object {
 
     protected static $db_table = "users";
-    protected static $db_table_fields = array('username', 'password', 'first_name', 'last_name','user_image');
+    protected static $db_table_fields = array('username', 'password', 'first_name', 'last_name', 'user_image');
     public $id;
     public $username;
     public $password;
@@ -12,7 +12,6 @@ class User extends Db_object {
     public $user_image;
     public $image_placeholder = "http://placehold.it/400x400&text=image";
 
-    
     public $tmp_path;
     public $upload_directory = "images";
     public $errors = array();
@@ -50,61 +49,51 @@ class User extends Db_object {
 
     }
 
+    public function picture_path() {
 
-    public function picture_path(){
-
-        return $this->upload_directory.DS.$this->user_image;
+        return $this->upload_directory . DS . $this->user_image;
     }
 
     public function upload_photo() {
 
-        
+        if (!empty($this->errors)) {
 
-            if (!empty($this->errors)) {
+            return false;
 
-                return false;
+        }
+        if (empty($this->user_image) || empty($this->tmp_path)) {
 
-            }
-            if (empty($this->user_image) || empty($this->tmp_path)) {
+            $this->errors[] = "the file was not available";
+            return false;
+        }
 
-                $this->errors[] = "the file was not available";
-                return false;
-            }
+        $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
 
-            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+        if (file_exists($target_path)) {
+            $this->errors[] = "The file {$this->user_image} already exists";
+            return false;
 
-            if (file_exists($target_path)) {
-                $this->errors[] = "The file {$this->user_image} already exists";
-                return false;
+        }
 
-            }
+        if (move_uploaded_file($this->tmp_path, $target_path)) {
 
-            if (move_uploaded_file($this->tmp_path, $target_path)) {
+            unset($this->tmp_path);
+            return true;
 
-                
+        } else {
 
-                    unset($this->tmp_path);
-                    return true;
-               
+            $this->errors[] = "The file directory probably does not have permission";
 
-            } else {
+            return false;
+        }
 
-                $this->errors[] = "The file directory probably does not have permission";
-
-                return false;
-            }
-
-        
-        
     }
 
-    public function image_path_and_placeholder(){
+    public function image_path_and_placeholder() {
 
-        return empty($this->user_image)? $this->image_placeholder : $this->upload_directory.DS.$this->user_image;
+        return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
     }
-  
 
-    
     public static function verify_user($username, $password) {
 
         global $database;
@@ -118,9 +107,36 @@ class User extends Db_object {
 
     }
 
-   
-    
+    public function ajax_save_user_image($user_image, $user_id) {
 
-}// END Class USER
+        global $database;
+
+        $user_image = $database->escape_string($user_image);
+        $user_id = $database->escape_string($user_id);
+
+        $this->user_image = $user_image;
+        $this->id = $user_id;
+
+        $sql = "UPDATE " . self::$db_table . " SET user_image = '{$this->user_image}' ";
+        $sql .= " WHERE id = {$this->id} ";
+        $update_image = $database->query($sql);
+
+        echo $this->image_path_and_placeholder();
+    }
+
+    public function delete_photo() {
+
+        if ($this->delete()) {
+
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory.DS.$this->user_image;
+
+            return unlink($target_path) ? true : false;
+        } else {
+
+            return false;
+        }
+
+    }
+} // END Class USER
 
 ?>

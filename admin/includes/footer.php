@@ -1,5 +1,6 @@
   </div>
     <!-- /#wrapper -->
+    <script src="js/dropzone.min.js"></script>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

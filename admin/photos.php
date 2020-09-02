@@ -35,6 +35,9 @@ $photos = Photo::find_all();
                     All Photos
                     <!-- <small>Subheading</small> -->
                 </h1>
+                <p class="bg-success"> 
+            <?php echo $message; ?>
+             </p>
                 <div class="col-md-12">
 
 
