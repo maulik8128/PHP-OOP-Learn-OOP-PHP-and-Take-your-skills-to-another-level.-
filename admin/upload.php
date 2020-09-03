@@ -3,11 +3,12 @@
 
 <?php 
 $massage="";
-if(isset($_POST['submit'])){
+if(isset($_FILES['file'])){
 
 $photo = new Photo();
 $photo->title=$_POST['title'];
-$photo->set_file($_FILES['file_upload']);
+$photo->user_id=$_SESSION['user_id'];
+$photo->set_file($_FILES['file']);
 
 if($photo->save()){
 
@@ -57,6 +58,8 @@ if($photo->save()){
                     Uploads
                     <small></small>
                 </h1>
+
+                <div class="row">
                 <div class="col-md-6">
 
                 <?php echo $massage; ?>
@@ -70,7 +73,7 @@ if($photo->save()){
 
                         <div class="form-group">
 
-                            <input type="file" name="file_upload" >
+                            <input type="file" name="file" >
 
                         </div>
 
@@ -80,10 +83,23 @@ if($photo->save()){
 
                 </div>
 
-
-
-
-
+                </div>
+                <div class="row">
+                
+                <div class="col-lg-12">
+                
+                <form action="upload.php" class ="dropzone">
+                
+                
+                <div class="fallback">
+                              <input name="file" type="file" multiple >
+                       </div>
+                
+                </form>
+                         
+                </div>
+                
+                </div>
 
             </div>
         </div>

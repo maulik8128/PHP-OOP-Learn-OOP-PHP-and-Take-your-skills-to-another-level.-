@@ -46,5 +46,25 @@ $(document).ready(function () {
     });
   });
 
+  /*****************Edit Photo Side Bar****************/
+
+  $(".info-box-header").click(function(){
+
+    $(".inside").slideToggle("fast");
+    $("#toggle").toggleClass("glyphicon-menu-down glyphicon , glyphicon-menu-up glyphicon ");
+
+  });
+
+
+/**------Delete Function-------**/
+$(".delete_link").click(function(){
+
+
+  return confirm("Are you sure you want to delete this item");
+
+
+});
+
+
   tinymce.init({ selector: "textarea" });
 });
